@@ -32,6 +32,8 @@ Adding Tailwind to the project
 
 ```bash
  npm install -D tailwindcss
+
+ npm install -D tailwindcss postcss autoprefixer
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
