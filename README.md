@@ -2,7 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, when starting the project install the following lines in the terminal to create the Next.js project. 
+
+```bash
+npm init
+#This will create the inital package.json file
+
+npm i -D ts-node
+
+npm create-next-app --typescript
+
+npm install next@latest react@latest react-dom@latest
+```
+
+
+After Next.js is installed, run the development server:
 
 ```bash
 npm run dev
@@ -13,6 +27,18 @@ pnpm dev
 # or
 bun dev
 ```
+
+
+## Troubleshooting Steps for Command Problems
+
+Error Code:
+
+```bash
+npm run build
+# this should run Next.js in the system.
+
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

@@ -1,0 +1,7 @@
+ npm i -D ts-node
+
+npm create-next-app --typescript
+
+npm install next@latest react@latest react-dom@latest
+
+Use npm run dev simple to nodemon
