@@ -27,24 +27,26 @@ pnpm dev
 # or
 bun dev
 ```
-
-
-## Troubleshooting Steps for Command Problems
-
-Error Code:
-
-```bash
-npm run build
-# this should run Next.js in the system.
-
-```
-
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Troubleshooting Steps for Command Problems
+
+Error Code:
+
+- Error No. -4058
+
+```bash
+npm run build
+# this should run Next.js in the system if you are receiving an error code "errno: -4058, code: 'ENOENT', syscall: 'open', path : 'C:\\User\\USERNAME\\PROJECT LOCATION\\.next\\BUILD_ID"
+
+```
+
+
+
 
 ## Learn More
 
