@@ -16,6 +16,10 @@ const Auth = () => {
                         <h2 className="text-white text-4xl mb-8 font-semibold">
                             Sign In
                         </h2>
+                        <div className="flex flex-col gap-4">
+                            
+
+                        </div>
                     </div>
                 </div>
                 <div>
