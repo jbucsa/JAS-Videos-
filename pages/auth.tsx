@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import '../styles/globals.css';
-import InputEmail from './components/inputEmail';
+import Input from './components/Input';
 
 const Auth = () => {
+const [email, setEmail] = useState ('');
+const [name, setName] = useState('');
+
     return (
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
             <div className="bg-black w-full h-full lg:bg-opacity-50">
@@ -18,7 +22,22 @@ const Auth = () => {
                             Sign In
                         </h2>
                         <div className="flex flex-col gap-4">
-                            <InputEmail />
+                            <Input
+                                label="Username"
+                                onChange={(event) => setName(event.target.value)}
+                                id="name"
+                                type="name"
+                                value={name}/>
+
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+                            <Input
+                                label="Email"
+                                onChange={(event) => setEmail(event.target.value)}
+                                id="email"
+                                type="email"
+                                value={email}/>
 
                         </div>
                     </div>
