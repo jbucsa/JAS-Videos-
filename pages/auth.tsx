@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import Input from '@/components/input';
+import InputEmail from './components/inputEmail';
 
 const Auth = () => {
     return (
@@ -18,7 +18,7 @@ const Auth = () => {
                             Sign In
                         </h2>
                         <div className="flex flex-col gap-4">
-                            <Input />
+                            <InputEmail />
 
                         </div>
                     </div>

@@ -8,7 +8,7 @@ interface InputProps {
 }
 
 
-const Input = () => {
+const InputEmail = () => {
     return (
         <div className="relative">
             <input 
@@ -44,4 +44,4 @@ const Input = () => {
     )
 }
 
-export default Input; 
+export default InputEmail; 
