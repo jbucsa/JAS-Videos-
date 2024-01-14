@@ -63,7 +63,7 @@ const Auth = () => {
 
                     </div>
                 </div>
-                <div>
+                <div className="px-12 py-40">
                 </div>
             </div>
         </div>
