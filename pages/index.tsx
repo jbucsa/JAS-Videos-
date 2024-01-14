@@ -5,7 +5,6 @@ export default function Page() {
   return (
     <div>
       <NavBar />
-      <h1>Welcome to test Netflix</h1>
     </div>
 
   )
