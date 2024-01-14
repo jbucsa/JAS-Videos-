@@ -34,6 +34,8 @@ Adding Tailwind to the project
  npm install -D tailwindcss
 
  npm install -D tailwindcss postcss autoprefixer
+
+ npm install @heroicons/react
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
