@@ -1,4 +1,5 @@
 //found this sample mongoose connect from Next.JS 
+///NOT WORKING YET
 
 import mongoose from "mongoose";
 declare global {

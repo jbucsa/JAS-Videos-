@@ -6,10 +6,11 @@ import MovieGrid from "./components/MovieGrid";
 import randomMovies from '../lib/seedData'
 //DATABASE RENDERING ISSUES
 //import db from '../models/movie2'
+//UNFINISHED CONNECTING DATABASE
+//const some_movies = await db.find().limit(10)
+
 console.log(randomMovies)
 export default function Home() {
-  //UNFINISHED CONNECTING DATABASE
-  //const some_movies = await db.find().limit(10)
 
   return (
     <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -17,7 +18,13 @@ export default function Home() {
         <NavBar />
         <Billboard />
         <div className="pb-40">
-          <MovieGrid allMovies={randomMovies} />
+          <MovieGrid movieData={randomMovies} listName={"Trending"} />
+        </div>
+        <div className="pb-40">
+          <MovieGrid movieData={randomMovies} listName={"New Releases"} />
+        </div>
+        <div className="pb-40">
+          <MovieGrid movieData={randomMovies} listName={"For You"} />
         </div>
       </div>
     </div>
