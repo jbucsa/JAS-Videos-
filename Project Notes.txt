@@ -5,3 +5,5 @@ npm create-next-app --typescript
 npm install next@latest react@latest react-dom@latest
 
 Use npm run dev simple to nodemon
+
+the massive background images make loading time really long
