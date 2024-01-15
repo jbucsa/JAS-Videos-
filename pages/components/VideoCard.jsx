@@ -3,17 +3,17 @@ import { useRouter } from 'next/router';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PlayIcon } from '@heroicons/react/24/solid';
 
-function VideoCard(myMovie) {
+function VideoCard(props) {
     //bring over data from props
     console.log("videoCard")
-    console.log(myMovie)
+    console.log(props.myMovie)
     //create router to redirect and useCallback to run functions
     const router = useRouter();
-    const redirectToWatch = useCallback(() => router.push(`/watch/${myMovie.movie_id}`), [router, myMovie.movie_id]);
+    const redirectToWatch = useCallback(() => router.push(`/watch/${props.myMovie.movie_id}`), [router, props.myMovie.movie_id]);
 
     return (
         <div className="group bg-zinc-900 col-span relative h-[12vw]">
-            <img onClick={redirectToWatch} src={myMovie.poster} alt="Movie" draggable={false} className="
+            <img onClick={redirectToWatch} src={props.myMovie.poster} alt="Movie" draggable={false} className="
         cursor-pointer
         object-cover
         transition
@@ -43,7 +43,7 @@ function VideoCard(myMovie) {
         group-hover:translate-x-[2vw]
         group-hover:opacity-100
       ">
-                <img onClick={redirectToWatch} src={myMovie.poster} alt="Movie" draggable={false} className="
+                <img onClick={redirectToWatch} src={props.myMovie.poster} alt="Movie" draggable={false} className="
           cursor-pointer
           object-cover
           transition
@@ -73,13 +73,13 @@ function VideoCard(myMovie) {
                         </div>
                     </div>
                     <p className="text-green-400 font-semibold mt-4">
-                        New <span className="text-white">2023</span>
+                        {props.myMovie.title} <span className="text-white">{props.myMovie.released}</span>
                     </p>
                     <div className="flex flex-row mt-4 gap-2 items-center">
-                        <p className="text-white text-[10px] lg:text-sm">{myMovie.run_time}</p>
+                        <p className="text-white text-[10px] lg:text-sm">{props.myMovie.run_time} minutes</p>
                     </div>
                     <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm">
-                        <p>{myMovie.genres}</p>
+                        <p>{props.myMovie.genres}</p>
                     </div>
                 </div>
             </div>

@@ -36,7 +36,7 @@
     "pages/components/VideoCard.jsx",
     "pages/components/MovieGrid.jsx",
     "models/index.js",
-    "models/movie.js"
+    "models/movie.ts"
   ],
   "exclude": [
     "node_modules"
