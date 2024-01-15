@@ -7,11 +7,12 @@ function Page() {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+
     //creates a state for logged in and not logged in
     const [variant, setVariant] = useState('login');
 
+    //simple two state toggle between logged in and not logged in (registered)
     const toggleVariant = useCallback(() => {
-        //simple two state toggle between logged in and not logged in (registered)
         setVariant((currentVariant) => currentVariant == 'login' ? 'register' : 'login');
     }, [])
 

@@ -13,6 +13,8 @@ npm i -D ts-node
 npm create-next-app --typescript
 
 npm install next@latest react@latest react-dom@latest
+
+npm i mongoose
 ```
 
 

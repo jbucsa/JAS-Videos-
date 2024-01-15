@@ -5,6 +5,7 @@ import { BellIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react
 import MobileMenu from "./MobileMenu";
 import AccountMenu from "./AccountMenu";
 
+//kinda eyeballed the offset needed for the navbar from the top
 const TOP_OFFSET = 66;
 
 const NavBar = () => {
