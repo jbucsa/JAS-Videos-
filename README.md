@@ -56,7 +56,8 @@ npm run build
 
 ```
 
-
+## Helpful Resources
+using ['SWR'](https://refine.dev/blog/data-fetching-next-js-useswr/#introduction) to manage API callls
 
 
 ## Learn More
