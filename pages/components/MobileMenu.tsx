@@ -1,11 +1,12 @@
 import React from 'react';
 
-//this component loads a MUCH smaller version of our main menue
+//this component loads a MUCH smaller version of our main menu
 
+//interface sets to either visible or invisible
 interface MobileMenuProps {
     visible?: boolean;
 }
-
+//functional components statement to control if we return null or return our whole component
 const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
     if (!visible) {
         return null;
