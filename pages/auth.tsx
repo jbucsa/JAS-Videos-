@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import '../styles/globals.css';
 import Input from './components/Input';
 
-const Auth = () => {
+function Auth() {
     const [email, setEmail] = useState ('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -12,16 +12,15 @@ const Auth = () => {
     const toggleVariant = useCallback(() => {
         setVariant((currentVariant) => currentVariant == 'login' ? 'register' : 'login');
     }, [])
-
     return (
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
             <div className="bg-black w-full h-full lg:bg-opacity-50">
                 <div>
                     <nav className="px-12 py-10">
-                        <img src="/images/logo.png" alt="Logo Here" className="h-12"> 
+                        <img src="/images/logo.png" alt="Logo Here" className="h-12">
                         </img>
                     </nav>
-                </div> 
+                </div>
                 <div className="flex justify-center">
                     <div className="bg-black bg-opacity-70 px-16 py-16 self-center mt-2 
                     lg:w-2/5 lg:max-w-md rounded-md w-full">
