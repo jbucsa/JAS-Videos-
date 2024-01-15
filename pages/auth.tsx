@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import Input from '@/components/input';
 
-const Auth = () => {
+function Auth() {
     return (
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
             <div className="bg-black w-full h-full lg:bg-opacity-50">
