@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import axios from 'axios';
 import '../styles/globals.css';
 import Input from './components/Input';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router'
 
 function Page() {
@@ -17,6 +18,28 @@ function Page() {
         setVariant((currentVariant) => currentVariant == 'login' ? 'register' : 'login');
     }, [])
 
+    //use the router to create dummy login bypass 
+    const router = useRouter()
+   
+    //This code is for the Login function
+    const login = useCallback( async () => {
+        try {
+            await signIn('credentials', {
+                email,
+                password,
+                redirect: false,
+                callback: '/'
+            });
+
+
+            router.push('/');
+
+        } catch (error) {
+            console.log(error);
+        }
+    }, [email, password, router]);
+   
+   
     //This is for registeration verification with the api/[...nextauth].ts file. Use npm i axios for this part
     const register = useCallback (async () => {
         try {
@@ -25,14 +48,12 @@ function Page() {
                 name,
                 password
             });
-
+            login();
         } catch (error) {
             console.log(error);
         }
-    }, [ email, name, password]);
+    }, [ email, name, password, login]);
 
-    //use the router to create dummy login bypass 
-    const router = useRouter()
 
     return (
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -78,7 +99,7 @@ function Page() {
 
 
                         {/* This button is for user verification and true functionality */}
-                        <button onClick={register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                        <button onClick={variant == 'login' ? login : register } className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                             {variant == 'login' ? 'Login' : 'Sign Up'}
                         </button>
 
