@@ -48,7 +48,7 @@ Adding Tailwind to the project
  npm install bcrypt
 
  npm install -D @types/bcrypt
- 
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -74,10 +74,10 @@ npm run build
 
 These are the following files that will needed to change depending on the style of database used when designing this project.
 
--/pages/api/[...nextauth].ts
--/prisma/schema.prisma
--/lib/dbConnect.ts
--/lib/seedData.js
+- /pages/api/[...nextauth].ts
+- /prisma/schema.prisma
+- /lib/dbConnect.ts
+- /lib/seedData.js
 
 
 ## Helpful Resources
