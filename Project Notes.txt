@@ -5,3 +5,15 @@ npm create-next-app --typescript
 npm install next@latest react@latest react-dom@latest
 
 Use npm run dev simple to nodemon
+
+
+
+time:: 35:00
+
+npm install -D prisma
+npm prisma init
+    -Change provider from "postgress" to "mongodb":
+    -Note-only if we change to MongoDB. Otherwise stay with Postgress.
+    provide = "mongodb"
+    url = env(mongodb+srv://aldoresendiz:cJ4YJnQzUefgXqN9@cluster0.cwjczaf.mongodb.net/)
+npm
