@@ -37,3 +37,6 @@ next-env.d.ts
 
 #Random Trash Folder
 /jas_videos
+
+#Ignore these files. Just personal note
+Project_Notes.txt
