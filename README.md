@@ -38,6 +38,17 @@ Adding Tailwind to the project
  npm install -D tailwindcss postcss autoprefixer
 
  npm install @heroicons/react
+
+ npm install -D prisma
+
+ npx prisma init
+
+ npm install next-auth
+
+ npm install bcrypt
+
+ npm install -D @types/bcrypt
+ 
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -56,7 +67,18 @@ Error Code:
 npm run build
 # this should run Next.js in the system if you are receiving an error code "errno: -4058, code: 'ENOENT', syscall: 'open', path : 'C:\\User\\USERNAME\\PROJECT LOCATION\\.next\\BUILD_ID"
 
+
 ```
+
+## Files that used the database variables
+
+These are the following files that will needed to change depending on the style of database used when designing this project.
+
+-/pages/api/[...nextauth].ts
+-/prisma/schema.prisma
+-/lib/dbConnect.ts
+-/lib/seedData.js
+
 
 ## Helpful Resources
 using ['SWR'](https://refine.dev/blog/data-fetching-next-js-useswr/#introduction) to manage API callls
