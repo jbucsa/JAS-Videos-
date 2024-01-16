@@ -15,5 +15,5 @@ npm prisma init
     -Change provider from "postgress" to "mongodb":
     -Note-only if we change to MongoDB. Otherwise stay with Postgress.
     provide = "mongodb"
-    url = env(mongodb+srv://aldoresendiz:cJ4YJnQzUefgXqN9@cluster0.cwjczaf.mongodb.net/)
+    url = 
 npm
