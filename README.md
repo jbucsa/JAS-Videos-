@@ -13,6 +13,8 @@ npm i -D ts-node
 npm create-next-app --typescript
 
 npm install next@latest react@latest react-dom@latest
+
+npm i mongoose
 ```
 
 
@@ -56,7 +58,8 @@ npm run build
 
 ```
 
-
+## Helpful Resources
+using ['SWR'](https://refine.dev/blog/data-fetching-next-js-useswr/#introduction) to manage API callls
 
 
 ## Learn More

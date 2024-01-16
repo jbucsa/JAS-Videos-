@@ -2,11 +2,14 @@ import NavbarItem from "./NavbarItem";
 import React, { useCallback, useEffect, useState } from 'react';
 //import icons from a library of icons
 import { BellIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import MobileMenu from "./MobileMenu";
+import AccountMenu from "./AccountMenu";
 
+//kinda eyeballed the offset needed for the navbar from the top
 const TOP_OFFSET = 66;
 
 const NavBar = () => {
-    //React useState varialles
+    //React useState variables
     const [showAccountMenu, setShowAccountMenu] = useState(false);
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showBackground, setShowBackground] = useState(false);
@@ -28,14 +31,14 @@ const NavBar = () => {
             window.removeEventListener('scroll', handleScroll);
         }
     }, []);
-
+    //simple toggle states using chevron icons
     const toggleAccountMenu = useCallback(() => {
         setShowAccountMenu((current) => !current);
     }, []);
-
     const toggleMobileMenu = useCallback(() => {
         setShowMobileMenu((current) => !current);
     }, []);
+
 
     return (
         <nav className="w-full fixed z-40">
@@ -52,6 +55,7 @@ const NavBar = () => {
                 <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative">
                     <p className="text-white text-sm">Browse</p>
                     <ChevronDownIcon className={`w-4 text-white fill-white transition ${showMobileMenu ? 'rotate-180' : 'rotate-0'}`} />
+                    <MobileMenu visible={showMobileMenu} />
                 </div>
                 <div className="flex flex-row ml-auto gap-7 items-center">
                     <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
@@ -65,6 +69,7 @@ const NavBar = () => {
                             <img src="/images/default-blue.png" alt="" />
                         </div>
                         <ChevronDownIcon className={`w-4 text-white fill-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`} />
+                        <AccountMenu visible={showAccountMenu} />
                     </div>
                 </div>
             </div>
