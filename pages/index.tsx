@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import axios from 'axios';
 import '../styles/globals.css';
 import Input from './components/Input';
 import { useRouter } from 'next/router'
@@ -8,13 +9,27 @@ function Page() {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
-    //creates a state for logged in and not logged in
+    //Creates a state for logged in and not logged in
     const [variant, setVariant] = useState('login');
 
-    //simple two state toggle between logged in and not logged in (registered)
+    //Simple two state toggle between logged in and not logged in (registered)
     const toggleVariant = useCallback(() => {
         setVariant((currentVariant) => currentVariant == 'login' ? 'register' : 'login');
     }, [])
+
+    //This is for registeration verification with the api/[...nextauth].ts file. Use npm i axios for this part
+    const register = useCallback (async () => {
+        try {
+            await axios.post('/api/register', {
+                email, 
+                name,
+                password
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
+    }, [ email, name, password]);
 
     //use the router to create dummy login bypass 
     const router = useRouter()
@@ -55,9 +70,19 @@ function Page() {
                                 type="password"
                                 value={password} />
                         </div>
+                    
+                        {/* This button is for testing. Not true functionality.         */}
                         <button onClick={() => router.push('/home')} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                             {variant == 'login' ? 'Login' : 'Sign Up'}
                         </button>
+
+
+                        {/* This button is for user verification and true functionality */}
+                        <button onClick={register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                            {variant == 'login' ? 'Login' : 'Sign Up'}
+                        </button>
+
+
                         <p className="text-neutral-500 mt-12">
                             {variant == 'login' ? 'First time using Netflix?' : 'Already have an account?'}
                             <span onClick={toggleVariant} className="text-white ml-1 hover:underline cursor-pointer">
