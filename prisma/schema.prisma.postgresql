@@ -18,22 +18,20 @@ model Users {
   emailVerified DateTime?
   hashedPassword String?
   createdAt DateTime @default(now())
-  updatedAt DateTime? @updatedAt
-  movies UserMovies[]
+  updatedAt DateTime @updatedAt
+  favoriteMovies UserMovies[]
   accounts Accounts[]
 }
 
 model UserMovies {
   user Users @relation(fields: [userId], references: [id])
   userId Int
-  movie Movies @relation(fields: [movieId], references: [id])
+  movie Movies @relation(fields: [movieId], references [id])
   movieId Int
-
-  @@unique([userId, movieId])
 }
 
 model Accounts {
-  id Int @id @default(autoincrement())
+  id int @id @default(autoincrement())
   userId Int
   type String
   session_state String?
@@ -85,23 +83,23 @@ model Genres {
  model Movies {
   id Int @id @default(autoincrement())
   title String
-  plot String?
+  plot String
+  genre Genres @relation(fields: [genreId], references[id])
   genreId Int
-  runTime Int?
+  runTime Int
+  actor Actors @relation(fields: [actorId], references[id])
   actorId Int
-  poster String?
+  poster String
+  language Languages @relation(fields: [languageId], references[id])
   languageId Int
+  director Directors @relation(fields: [directorId], references[id])
   directorId Int
+  rating Ratings @relation(fields: [ratingId], references[id])
   ratingId Int
-  year Int?
+  year Int
+  country Countries @relation(fields: [countryId], references[id])
   countryId Int
+  type Types @relation(fields: [typeId], references[id])
   typeId Int
-  userFavorites UserMovies[]
-  actor Actors @relation(fields: [actorId], references: [id])
-  country Countries @relation(fields: [countryId], references: [id])
-  genre Genres @relation(fields: [genreId], references: [id])
-  language Languages @relation(fields: [languageId], references: [id])
-  director Directors @relation(fields: [directorId], references: [id])
-  rating Ratings @relation(fields: [ratingId], references: [id])
-  type Types @relation(fields: [typeId], references: [id])
+  users UserMovies[]
  }
