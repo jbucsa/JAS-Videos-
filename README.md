@@ -53,6 +53,8 @@ Adding Tailwind to the project
  npm install -D @types/bcrypt
 
 npm i axios
+
+npm install swr
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
