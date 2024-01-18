@@ -6,6 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "postgres"
+  url      = env(DATABASE_URL)
 }
+
+//schemas go here

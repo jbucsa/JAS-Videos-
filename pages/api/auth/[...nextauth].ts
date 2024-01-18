@@ -4,7 +4,7 @@ import { compare } from 'bcrypt';
 
 import dbConnect from '@/lib/dbConnect';
 
-export default NextAuth( {
+export default NextAuth({
     providers: [
         Credentials({
             id: 'credentials',
@@ -19,30 +19,30 @@ export default NextAuth( {
                     type: 'password'
                 }
             },
-            async authorize ( credentials ) {
-                    if (!credentials?. email || !credentials?.password) {
-                        throw new Error('Email and password required!');
-                    }
-
-                    // This const will need to change to reflect the proper database being used
-                    const user = await dbConnect.user.findUnique({
-                        where: {
-                            email: credentials.email
-                        }
-                    });
-                    if (!user || !user.hashedPassword) {
-                        throw new Error('Email does not exist. Try again.');
-                    }
-                    const isCorrectPassword = await compare (
-                        credentials.password, 
-                        user.hashedPassword);
-
-                    if (!isCorrectPassword) {
-                        throw new Error('Incorrect password. Try again.');
-                    }
-                    return user;
+            async authorize(credentials) {
+                if (!credentials?.email || !credentials?.password) {
+                    throw new Error('Email and password required!');
                 }
-            
+
+                // This const will need to change to reflect the proper database being used
+                const user = await dbConnect.user.findUnique({
+                    where: {
+                        email: credentials.email
+                    }
+                });
+                if (!user || !user.hashedPassword) {
+                    throw new Error('Email does not exist. Try again.');
+                }
+                const isCorrectPassword = await compare(
+                    credentials.password,
+                    user.hashedPassword);
+
+                if (!isCorrectPassword) {
+                    throw new Error('Incorrect password. Try again.');
+                }
+                return user;
+            }
+
         })
     ],
     pages: {
@@ -52,9 +52,9 @@ export default NextAuth( {
     session: {
         strategy: 'jwt'
     },
-    jwt : {
+    jwt: {
         secret: process.env.NEXTAUTH_JWT_SECRET
     },
-    secret : process.env.NEXTAUTH_SECRET
+    secret: process.env.NEXTAUTH_SECRET
 });
 
