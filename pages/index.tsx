@@ -6,6 +6,9 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router'
 
 function Page() {
+    //use the router to create dummy login bypass 
+    const router = useRouter();
+
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -18,8 +21,7 @@ function Page() {
         setVariant((currentVariant) => currentVariant == 'login' ? 'register' : 'login');
     }, [])
 
-    //use the router to create dummy login bypass 
-    const router = useRouter()
+
 
     //This code is for the Login function
     const login = useCallback(async () => {
@@ -27,17 +29,14 @@ function Page() {
             await signIn('credentials', {
                 email,
                 password,
-                redirect: false,
-                callback: '/'
+                callbackUrl: '/profiles'
             });
 
-
-            router.push('/');
 
         } catch (error) {
             console.log(error);
         }
-    }, [email, password, router]);
+    }, [email, password]);
 
 
     //This is for registeration verification with the api/[...nextauth].ts file. Use npm i axios for this part

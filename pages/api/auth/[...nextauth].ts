@@ -43,11 +43,6 @@ export default NextAuth({
                 return user;
             }
 
-                    if(!isCorrectPassword) {
-                throw new Error('Incorrect password. Please try again.');
-            }
-                    return user;
-        }
         })
     ],
 pages: {
