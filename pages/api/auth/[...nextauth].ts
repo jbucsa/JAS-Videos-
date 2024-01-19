@@ -1,8 +1,10 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+// import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compare } from 'bcrypt';
 
 import prismadb from '@/lib/prismadb';
+// import dbConnect from '@/lib/dbConnect';
 
 export default NextAuth({
     providers: [
@@ -42,16 +44,20 @@ export default NextAuth({
                 }
                 return user;
             }
+
         })
     ],
     pages: {
-        signIn: '/'
+        signIn: '/index'
     },
     debug: process.env.NODE_ENV === 'development',
-    session: {
-        strategy: 'jwt'
-    },
+    // adapter: PrismaAdapter(prismadb),
+    // Next to review. Adapter may not be needed
+    // adapter: PrismaAdapter(dbConnect),
+    session: { strategy: 'jwt' },
     jwt: {
         secret: process.env.NEXTAUTH_JWT_SECRET
-    }
+    },
+    secret: process.env.NEXTAUTH_SECRET
+
 });
