@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env(DATABASE_URL)
+}
+
+model Users {
+  id Int @id @default(autoincrement())
+  name String
+  image String?
+  email String @unique
+  emailVerified DateTime?
+  hashedPassword String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+  movies UserMovies[]
+  accounts Accounts[]
+}
+
+model UserMovies {
+  user Users @relation(fields: [userId], references: [id])
+  userId Int
+  movie Movies @relation(fields: [movieId], references: [id])
+  movieId Int
+
+  @@unique([userId, movieId])
+}
+
+model Accounts {
+  id Int @id @default(autoincrement())
+  userId Int
+  type String
+  session_state String?
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Actors {
+  id Int @id @default(autoincrement())
+  actor String
+  actors Movies[]
+ }
+
+model Countries {
+  id Int @id @default(autoincrement())
+  country String
+  countries Movies[]
+}
+
+model Genres {
+  id Int @id @default(autoincrement())
+  genre String
+  genres Movies[]
+ }
+
+ model Languages {
+  id Int @id @default(autoincrement())
+  language String
+  languages Movies[]
+ }
+
+ model Directors {
+  id Int @id @default(autoincrement())
+  director String
+  directors Movies[]
+ }
+
+ model Ratings {
+  id Int @id @default(autoincrement())
+  rating String
+  ratings Movies[]
+ }
+
+ model Types {
+  id Int @id @default(autoincrement())
+  type String
+  types Movies[]
+ }
+
+ model Movies {
+  id Int @id @default(autoincrement())
+  title String
+  plot String?
+  genreId Int
+  runTime Int?
+  actorId Int
+  poster String?
+  languageId Int
+  directorId Int
+  ratingId Int
+  year Int?
+  countryId Int
+  typeId Int
+  userFavorites UserMovies[]
+  actor Actors @relation(fields: [actorId], references: [id])
+  country Countries @relation(fields: [countryId], references: [id])
+  genre Genres @relation(fields: [genreId], references: [id])
+  language Languages @relation(fields: [languageId], references: [id])
+  director Directors @relation(fields: [directorId], references: [id])
+  rating Ratings @relation(fields: [ratingId], references: [id])
+  type Types @relation(fields: [typeId], references: [id])
+ }

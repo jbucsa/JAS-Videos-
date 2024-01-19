@@ -3,6 +3,8 @@ import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/react";
 
+
+
 export async function getServerSideProps (context: NextPageContext) {
     const session = await getSession(context);
 
@@ -23,7 +25,7 @@ export async function getServerSideProps (context: NextPageContext) {
 const Profiles = () => {
     const router = useRouter();
 
-    const { data, user } = useCurrentUser();
+    const { data: currentUser } = useCurrentUser();
 
 
     return (
@@ -33,17 +35,17 @@ const Profiles = () => {
                     Who is wathcing?
                 </h1>
                 <div className="flex item-center justify-center gap-8 mt-10">
-                    router.push('/') can be written as router.push('/home') to create a bypass
-                    <div onClick={() => router.push('/')}>
+                    {/* router.push('/') can be written as router.push('/home') to create a bypass */}
+                    <div onClick={() => router.push('/home')}>
                         <div className="group flex-row w-44 mx-auto">
                             <div className="w-44 h-44 rounded-md flex items-center justify-center border-2 border-transparent
                             group-hover:curor-pointer group-hover:border-white
                             overflow-hidden">
-                                <img src="/public/images/default-blue.png" alt="Profile" />
+                                <img src="/images/default-blue.png" alt="Profile" />
                             </div>
                             <div className="mt-4 text-gray-400 text-2xl text-center
                             group-hover:text-white">
-                                {user?.name}
+                                {currentUser?.name}
                             </div>
                        </div>
                     </div>

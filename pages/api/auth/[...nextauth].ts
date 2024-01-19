@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+// import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compare } from 'bcrypt';
 
 import prismadb from '@/lib/prismadb';
@@ -50,6 +51,7 @@ pages: {
     signIn: '/index'
 },
 debug: process.env.NODE_ENV === 'development',
+// adapter: PrismaAdapter(prismadb),
 // Next to review. Adapter may not be needed
 // adapter: PrismaAdapter(dbConnect),
 session: { strategy: 'jwt'},
