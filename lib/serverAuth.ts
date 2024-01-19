@@ -3,7 +3,10 @@ import { getSession} from "next-auth/react";
 
 
 // This import WILL change depending on what database we use: Mongo or Postgree
-import dbConnect from "./dbConnect";
+// import dbConnect from "./dbConnect";
+
+// This import WILL change depending on what database we use: Mongo or Postgree
+import prismadb from "./prismadb";
 
 const serverAuth = async (req: NextApiRequest) => {
     const session = await getSession({req });
@@ -11,7 +14,7 @@ const serverAuth = async (req: NextApiRequest) => {
     if (!session?.user?.email) {
         throw new Error('Not signed in');
     }
-    const currentUser = await dbConnect.user.findUnique({
+    const currentUser = await prismadb.user.findUnique({
         where: {
             email: session.user.email
         }

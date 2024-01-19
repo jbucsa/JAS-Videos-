@@ -3,7 +3,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { compare } from 'bcrypt';
 
 import prismadb from '@/lib/prismadb';
-import dbConnect from '@/lib/dbConnect';
+// import dbConnect from '@/lib/dbConnect';
 
 export default NextAuth({
     providers: [
