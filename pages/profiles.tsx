@@ -1,18 +1,19 @@
-import useCurrentUser from "@/hooks/useCurrentUser";
 import { NextPageContext } from "next";
+import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { getSession } from "next-auth/react";
+import { useCallback } from "react";
 
+import useCurrentUser from "@/hooks/useCurrentUser";
 
-
-export async function getServerSideProps (context: NextPageContext) {
+//saves web-browser context from previous sessions
+export async function getServerSideProps(context: NextPageContext) {
     const session = await getSession(context);
 
     if (!session) {
         return {
             redirect: {
                 destination: '/index',
-                permanent: false
+                permanent: false,
             }
         }
     }
@@ -21,39 +22,44 @@ export async function getServerSideProps (context: NextPageContext) {
         props: {}
     }
 }
-
-const Profiles = () => {
-    const router = useRouter();
-
-    const { data: currentUser } = useCurrentUser();
-
+//necessary for typescript
+interface UserCardProps {
+    name: string;
+}
+//creates a react component called UserCard that inputs a name
+const UserCard: React.FC<UserCardProps> = ({ name }) => {
 
     return (
-        <div className="flex item-center h-full justify-center">
+        <div className="group flex-row w-44 mx-auto">
+            <div className="w-44 h-44 rounded-md flex items-center justify-center border-2 border-transparent group-hover:cursor-pointer group-hover:border-white overflow-hidden">
+                <img draggable={false} className="w-max h-max object-contain" src={'/images/default-red.png'} alt="profile-guy" />
+            </div>
+            <div className="mt-4 text-gray-400 text-2xl text-center group-hover:text-white">{name}</div>
+        </div>
+    );
+}
+//the actual running part of the code
+const App = () => {
+    const router = useRouter();
+    //grabs the data from our current user via the hook
+    const { data: currentUser } = useCurrentUser();
+    //updates anytime the router changes
+    const selectProfile = useCallback(() => {
+        router.push('/home');
+    }, [router]);
+    //inject react/html elements
+    return (
+        <div className="flex items-center h-full justify-center">
             <div className="flex flex-col">
-                <h1 className="text-3xl md:text-6xl text-white text-center">
-                    Who is wathcing?
-                </h1>
-                <div className="flex item-center justify-center gap-8 mt-10">
-                    {/* router.push('/') can be written as router.push('/home') to create a bypass */}
-                    <div onClick={() => router.push('/home')}>
-                        <div className="group flex-row w-44 mx-auto">
-                            <div className="w-44 h-44 rounded-md flex items-center justify-center border-2 border-transparent
-                            group-hover:curor-pointer group-hover:border-white
-                            overflow-hidden">
-                                <img src="/images/default-blue.png" alt="Profile" />
-                            </div>
-                            <div className="mt-4 text-gray-400 text-2xl text-center
-                            group-hover:text-white">
-                                {currentUser?.name}
-                            </div>
-                       </div>
+                <h1 className="text-3xl md:text-6xl text-white text-center">Who&#39;s watching?</h1>
+                <div className="flex items-center justify-center gap-8 mt-10">
+                    <div onClick={() => selectProfile()}>
+                        <UserCard name={currentUser?.name} />
                     </div>
                 </div>
             </div>
-            <p className="text-white text-4xl">Profiles</p>
         </div>
-    )
-};
+    );
+}
 
-export default Profiles;
+export default App;
