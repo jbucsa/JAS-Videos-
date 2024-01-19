@@ -1,3 +1,5 @@
+//Fancy styling for log in inputs
+
 import React from "react";
 
 interface InputProps {
@@ -6,7 +8,7 @@ interface InputProps {
     value: string;
     label: string;
     type?: string;
-    
+
 }
 
 
@@ -14,7 +16,7 @@ const Input: React.FC<InputProps> = ({
     id,
     onChange,
     value,
-    label, 
+    label,
     type
 
 }) => {
@@ -29,15 +31,15 @@ const Input: React.FC<InputProps> = ({
                 peer"
                 placeholder=" "
             />
-            <label 
+            <label
                 className="absolute text-md font-medium text-slate-400 duration-150 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-6
                 peer-placeholder-shown:scale-100
                 peer-placeholder-shown:translate-y-0
                 peer-focus:scale-75
                 peer-focus:-translate-y-3
-                "  
+                "
                 htmlFor={id}>
-                    {label}
+                {label}
             </label>
         </div>
     )

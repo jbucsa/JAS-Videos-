@@ -47,16 +47,17 @@ export default NextAuth({
 
         })
     ],
-pages: {
-    signIn: '/index'
-},
-debug: process.env.NODE_ENV === 'development',
-// adapter: PrismaAdapter(prismadb),
-// Next to review. Adapter may not be needed
-// adapter: PrismaAdapter(dbConnect),
-session: { strategy: 'jwt'},
-jwt: {
-    secret: process.env.NEXTAUTH_JWT_SECRET},
-secret: process.env.NEXTAUTH_SECRET
+    pages: {
+        signIn: '/index'
+    },
+    debug: process.env.NODE_ENV === 'development',
+    // adapter: PrismaAdapter(prismadb),
+    // Next to review. Adapter may not be needed
+    // adapter: PrismaAdapter(dbConnect),
+    session: { strategy: 'jwt' },
+    jwt: {
+        secret: process.env.NEXTAUTH_JWT_SECRET
+    },
+    secret: process.env.NEXTAUTH_SECRET
 
 });

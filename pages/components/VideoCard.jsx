@@ -9,7 +9,8 @@ function VideoCard(props) {
     console.log(props.myMovie)
     //create router to redirect and useCallback to run functions
     const router = useRouter();
-    const redirectToWatch = useCallback(() => router.push(`/watch/${props.myMovie.movie_id}`), [router, props.myMovie.movie_id]);
+    //the route to watch the movie is incorrect
+    const redirectToWatch = useCallback(() => router.redirect(`/watch/${props.myMovie.movie_id}`), [router, props.myMovie.movie_id]);
 
     return (
         <div className="group bg-zinc-900 col-span relative h-[12vw]">
