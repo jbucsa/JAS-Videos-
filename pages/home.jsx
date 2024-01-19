@@ -51,19 +51,5 @@ export default function Home() {
   )
 }
 
-/*
-// Create a context
-const MyContext = React.createContext();
-
-// Provider component
-function App() {
-  const [myVariable, setMyVariable] = useState('initial value');
-
-  return (
-    <MyContext.Provider value={{ myVariable, setMyVariable }}>
-    </MyContext.Provider >
-  );
-}
-*/
 
 
