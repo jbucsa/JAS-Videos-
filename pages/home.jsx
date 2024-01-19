@@ -2,9 +2,12 @@ import NavBar from "./components/NavBar"
 import Billboard from "./components/Billboard";
 import '../styles/globals.css';
 import MovieGrid from "./components/MovieGrid";
-import randomMovies from '../lib/seedData'
+// import randomMovies from '../lib/seedData'
+import myMovies from '.../lib/readMovies'
+import loadConfig from "next/dist/server/config";
 import React from "react";
 import { useState } from "react";
+
 
 // These imports are used for the SIGNOUT BUTTON
 import { getSession, signOut } from "next-auth/react";
