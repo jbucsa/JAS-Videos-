@@ -37,7 +37,8 @@
     "pages/components/MovieGrid.jsx",
     "models/index.js",
     "models/movie.ts",
-    "lib/dbConnect.js"
+    "lib/dbConnect.js",
+    "pages/home.jsx"
   ],
   "exclude": [
     "node_modules"

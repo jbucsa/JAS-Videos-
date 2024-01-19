@@ -5,8 +5,6 @@ import { PlayIcon } from '@heroicons/react/24/solid';
 
 function VideoCard(props) {
     //bring over data from props
-    console.log("videoCard")
-    console.log(props.myMovie)
     //create router to redirect and useCallback to run functions
     const router = useRouter();
     //the route to watch the movie is incorrect
