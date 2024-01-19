@@ -37,8 +37,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Ignore this to avoid API Keys while testing
-schema.prisma
+
 
 #Random Trash Folder
 /jas_videos
