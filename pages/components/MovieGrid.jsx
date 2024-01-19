@@ -5,7 +5,7 @@ function MovieGrid(props) {
     //bring over data from props
     console.log("Movie Grid ALl Movies")
     console.log(props.movieData)
-    //format the videos into VideoCard components
+    //format the videos into VideoCard components and maps them all
     return (
         <div className="px-4 md:px-12 mt-4 space-y-8">
             <div>

@@ -6,102 +6,122 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Users {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   name String
   image String?
-  email String @unique
+  email String? @unique
   emailVerified DateTime?
   hashedPassword String?
   createdAt DateTime @default(now())
-  updatedAt DateTime? @updatedAt
-  movies UserMovies[]
+  updatedAt DateTime @updatedAt
+  favoriteMovies String[] @db.ObjectId
+  sessions Sessions[]
   accounts Accounts[]
 }
 
-model UserMovies {
-  user Users @relation(fields: [userId], references: [id])
-  userId Int
-  movie Movies @relation(fields: [movieId], references: [id])
-  movieId Int
-
-  @@unique([userId, movieId])
-}
-
 model Accounts {
-  id Int @id @default(autoincrement())
-  userId Int
+  id String @id @default (auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
   type String
+  provider String
+  providerAccountId String
+  refresh_token String? @db.String
+  access_token String? @db.String
+  expires_at Int?
+  token_type String?
+  scope String?
+  id_token String? @db.String
   session_state String?
+
   user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
+
+ model Sessions {
+    id String @id @default (auto()) @map("_id") @db.ObjectId
+    sessionToken String @unique
+    userId String @db.ObjectId
+    expires DateTime
+
+    user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+ }
+
+model VerificationTokens {
+  id String @id @default (auto()) @map("_id") @db.ObjectId
+  identifier String
+  token String @unique
+  expires DateTime
+  @@unique([identifier, token])
+ }
 
 model Actors {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   actor String
   actors Movies[]
  }
 
 model Countries {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   country String
   countries Movies[]
 }
 
 model Genres {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   genre String
   genres Movies[]
  }
 
  model Languages {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   language String
   languages Movies[]
  }
 
  model Directors {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   director String
   directors Movies[]
  }
 
  model Ratings {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   rating String
   ratings Movies[]
  }
 
  model Types {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   type String
   types Movies[]
  }
 
  model Movies {
-  id Int @id @default(autoincrement())
+  id String @id @default (auto()) @map("_id") @db.ObjectId
   title String
-  plot String?
-  genreId Int
-  runTime Int?
-  actorId Int
-  poster String?
-  languageId Int
-  directorId Int
-  ratingId Int
-  year Int?
-  countryId Int
-  typeId Int
-  userFavorites UserMovies[]
+  plot String
+  genreId String @db.ObjectId
+  runTime Int
+  actorId String @db.ObjectId
+  poster String
+  languageId String @db.ObjectId
+  directorId String @db.ObjectId
+  ratingId String @db.ObjectId
+  year Int
+  countryId String @db.ObjectId
+  typeId String @db.ObjectId
+
   actor Actors @relation(fields: [actorId], references: [id])
-  country Countries @relation(fields: [countryId], references: [id])
   genre Genres @relation(fields: [genreId], references: [id])
   language Languages @relation(fields: [languageId], references: [id])
   director Directors @relation(fields: [directorId], references: [id])
   rating Ratings @relation(fields: [ratingId], references: [id])
+  country Countries @relation(fields: [countryId], references: [id])
   type Types @relation(fields: [typeId], references: [id])
  }

@@ -6,6 +6,9 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router'
 
 function Page() {
+    //use the router to create dummy login bypass 
+    const router = useRouter();
+
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -18,33 +21,29 @@ function Page() {
         setVariant((currentVariant) => currentVariant == 'login' ? 'register' : 'login');
     }, [])
 
-    //use the router to create dummy login bypass 
-    const router = useRouter()
-   
+
+
     //This code is for the Login function
-    const login = useCallback( async () => {
+    const login = useCallback(async () => {
         try {
             await signIn('credentials', {
                 email,
                 password,
-                redirect: false,
-                callback: '/'
+                callbackUrl: '/profiles'
             });
 
-
-            router.push('/');
 
         } catch (error) {
             console.log(error);
         }
-    }, [email, password, router]);
-   
-   
+    }, [email, password]);
+
+
     //This is for registeration verification with the api/[...nextauth].ts file. Use npm i axios for this part
-    const register = useCallback (async () => {
+    const register = useCallback(async () => {
         try {
             await axios.post('/api/register', {
-                email, 
+                email,
                 name,
                 password
             });
@@ -52,7 +51,7 @@ function Page() {
         } catch (error) {
             console.log(error);
         }
-    }, [ email, name, password, login]);
+    }, [email, name, password, login]);
 
 
     return (
@@ -91,15 +90,15 @@ function Page() {
                                 type="password"
                                 value={password} />
                         </div>
-                    
+
                         {/* This button is for testing. Not true functionality.         */}
                         <button onClick={() => router.push('/home')} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
-                            {variant == 'login' ? 'Login' : 'Sign Up'}
+                            {variant == 'login' ? 'Login Bypass' : 'Sign Up Bypass'}
                         </button>
 
 
                         {/* This button is for user verification and true functionality */}
-                        <button onClick={variant == 'login' ? login : register } className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                        <button onClick={variant == 'login' ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                             {variant == 'login' ? 'Login' : 'Sign Up'}
                         </button>
 
@@ -110,6 +109,8 @@ function Page() {
                                 {variant == 'login' ? 'Create an account' : 'Login In'}
                             </span>
                         </p>
+
+                        
 
                     </div>
                 </div>

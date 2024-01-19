@@ -28,6 +28,8 @@ yarn-error.log*
 # local env files
 .env*.local
 *.env
+.env
+
 # vercel
 .vercel
 
@@ -35,8 +37,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+
+
 #Random Trash Folder
 /jas_videos
 
 #Ignore these files. Just personal note
 Project_Notes.txt
+
