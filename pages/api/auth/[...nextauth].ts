@@ -42,26 +42,16 @@ export default NextAuth({
                 }
                 return user;
             }
-
-                    if(!isCorrectPassword) {
-                throw new Error('Incorrect password. Please try again.');
-            }
-                    return user;
-        }
         })
     ],
-pages: {
-    signIn: '/auth'
-},
-debug: process.env.NODE_ENV === 'development',
-    session: {
-    strategy: 'jwt'
-},
-jwt: {
-    secret: process.env.NEXTAUTH_JWT_SECRET
-    jwt: {
-        secret: process.env.NEXTAUTH_JWT_SECRET,
+    pages: {
+        signIn: '/'
     },
-    secret: process.env.NEXTAUTH_SECRET
-    secret: process.env.NEXTAUTH_SECRET,
+    debug: process.env.NODE_ENV === 'development',
+    session: {
+        strategy: 'jwt'
+    },
+    jwt: {
+        secret: process.env.NEXTAUTH_JWT_SECRET
+    }
 });

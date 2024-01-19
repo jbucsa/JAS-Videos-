@@ -30,8 +30,6 @@ function Page() {
                 redirect: false,
                 callback: '/'
             });
-
-
             router.push('/');
 
         } catch (error) {
