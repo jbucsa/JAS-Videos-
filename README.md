@@ -120,3 +120,44 @@ create an .env file with the proper connection string
 
 ```bash
 npm prisma db push
+
+
+## Building Using
+
+Moelink is built using the following technologies:
+
+- React.js - The library for web and native user interfaces
+- React-Redux - For routing
+- Next.js 14 - For application and layout
+- TypeScript - Extends JavaScript by adding types to the language
+- Tailwind - For styling and CSS
+- Prisma - Used for database schema, and connections
+- MongoDB Atlas - For database and cloud connection
+- SWR - To connect hook functions through the application
+- Axois - To assist in fetching out data
+ 
+
+
+## Authors
+
+Justin Bucsa
+- https://github.com/jbucsa
+- https://www.linkedin.com/in/justin-bucsa
+
+Aldo Resendiz
+- https://github.com/aldoresendiz
+- https://www.linkedin.com/in/aldoresendiz/
+
+Sam Cowdery 
+- https://github.com/sjcowdery96
+- https://www.linkedin.com/in/samuel-cowdery/
+
+
+
+##  Contributing
+
+Thanks to the following contributors for coding help and image design:
+Creator Account: Code With Antonio 
+Contribution: Coding and Design
+Platform: Youtube
+Webpage: https://www.youtube.com/@codewithantonio
