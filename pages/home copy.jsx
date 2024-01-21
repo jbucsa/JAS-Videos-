@@ -3,8 +3,8 @@ import Billboard from "./components/Billboard";
 import '../styles/globals.css';
 import MovieGrid from "./components/MovieGrid";
 // import randomMovies from '../lib/seedData'
-import myMovies from '.../lib/readMovies'
-import loadConfig from "next/dist/server/config";
+// import myMovies from '.../lib/readMovies'
+// import loadConfig from "next/dist/server/config";
 import React from "react";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 //UNFINISHED CONNECTING DATABASE
 //const some_movies = await db.find().limit(10)
 
-console.log(randomMovies)
+// console.log(randomMovies)
 const MyContext = React.createContext();
 
 export default function Home() {

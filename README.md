@@ -60,6 +60,9 @@ npm install @prisma/client
 
 npx prisma generate
 
+npm i lodash
+
+pm i --save-dev @types/lodash
 
 ```
 
