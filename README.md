@@ -158,7 +158,8 @@ Sam Cowdery
 ##  Contributing
 
 Thanks to the following contributors for coding help and image design:
-Creator Account: Code With Antonio 
-Contribution: Coding and Design
-Platform: Youtube
-Webpage: https://www.youtube.com/@codewithantonio
+
+- Creator Account: Code With Antonio 
+- Contribution: Coding and Design
+- Platform: Youtube
+- Webpage: https://www.youtube.com/@codewithantonio
