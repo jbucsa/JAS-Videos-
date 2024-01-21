@@ -120,6 +120,7 @@ create an .env file with the proper connection string
 
 ```bash
 npm prisma db push
+```
 
 
 ## Building Using
