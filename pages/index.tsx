@@ -91,10 +91,10 @@ function Page() {
                                 value={password} />
                         </div>
 
-                        {/* This button is for testing. Not true functionality.         */}
-                        <button onClick={() => router.push('/home')} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                        {/* This button is for testing. Not true functionality. Use the code below to create a bypass */}
+                        {/* <button onClick={() => router.push('/home')} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                             {variant == 'login' ? 'Login Bypass' : 'Sign Up Bypass'}
-                        </button>
+                        </button> */}
 
 
                         {/* This button is for user verification and true functionality */}
