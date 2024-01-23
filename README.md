@@ -1,10 +1,12 @@
 ## Netflix Clone
 
 Browser Login Page   
+   
 <img align="center" src="/public/images/README_BrowserLoginPage_Screenshot.jpg" width="700">
 
 
 Mobile Login Page   
+   
 <img align="center" src="/public/images/README_MobileLoginPage_Screenshot.jpg" width="300">
 
 
