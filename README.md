@@ -42,7 +42,7 @@ pnpm dev
 bun dev
 ```
 
-Adding Tailwind to the project
+Adding additional NPM's to the project:
 
 ```bash
  npm install -D tailwindcss
@@ -60,18 +60,18 @@ Adding Tailwind to the project
  npm install bcrypt
 
  npm install -D @types/bcrypt
-
-npm i axios
-
-npm install swr
-
-npm install @prisma/client
-
-npx prisma generate
-
-npm i lodash
-
-pm i --save-dev @types/lodash
+ 
+ npm install axios
+ 
+ npm install swr
+ 
+ npm install @prisma/client
+ 
+ npx prisma generate
+ 
+ npm install lodash
+ 
+ npm install --save-dev @types/lodash
 
 ```
 
