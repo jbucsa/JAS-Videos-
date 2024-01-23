@@ -8,17 +8,18 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
     }
 
     try {
+        // is a user logged in?
         await serverAuth(req);
 
     const movieCount = await prismadb.movies.count();
-    const randomIndex = Math.floor(Math.random() * movieCount);
+    const randomIndice = Math.floor(Math.random() * movieCount);
 
     const randomMovies = await prismadb.movies.findMany({
       take: 1,
-      skip: randomIndex
+      skip: randomIndice
     });
 
-    return res.status(200).json(randomMovies[0]);
+    return res.status(200).json(randomMovies[0]); /* We need to get the first element from the array since we are only retrieving one movie*/
 
     } catch (error) {
         console.log(error);
