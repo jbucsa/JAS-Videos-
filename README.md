@@ -1,7 +1,14 @@
-<img align="center" src="/public/images/README_screenshot.jpg" width="700">
+##Netflix Clone
+
+Browser Login Page
+<img align="center" src="README_BrowserLoginPage_Screenshot.jpg" width="700">
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Mobile Login Page
+<img align="center" src="README_MobileLoginPage_Screenshot.jpg" width="300">
+
+
+This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
