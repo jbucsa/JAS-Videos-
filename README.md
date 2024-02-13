@@ -152,15 +152,15 @@ Moelink is built using the following technologies:
 
 Justin Bucsa
 - https://github.com/jbucsa
-[![LinkedIn][linkedin-shield]][linkedin-url-Bucsa]
+- [![LinkedIn][linkedin-shield]][linkedin-url-Bucsa]
 
 Aldo Resendiz
-- https://github.com/aldoresendiz
-[![LinkedIn][linkedin-shield]][linkedin-Aldoresendiz]
+- https://github.com/aldoresendiz   
+- [![LinkedIn][linkedin-shield]][linkedin-Aldoresendiz]
 
 Sam Cowdery 
 - https://github.com/sjcowdery96
-[![LinkedIn][linkedin-shield]][linkedin-url-Cowdery]
+- [![LinkedIn][linkedin-shield]][linkedin-url-Cowdery]
 
 
 
