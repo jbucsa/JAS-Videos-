@@ -152,15 +152,15 @@ Moelink is built using the following technologies:
 
 Justin Bucsa
 - https://github.com/jbucsa
-- https://www.linkedin.com/in/justin-bucsa
+[![LinkedIn][linkedin-shield]][linkedin-url-Bucsa]
 
 Aldo Resendiz
 - https://github.com/aldoresendiz
-- https://www.linkedin.com/in/aldoresendiz/
+[![LinkedIn][linkedin-shield]][linkedin-Aldoresendiz]
 
 Sam Cowdery 
 - https://github.com/sjcowdery96
-- https://www.linkedin.com/in/samuel-cowdery/
+[![LinkedIn][linkedin-shield]][linkedin-url-Cowdery]
 
 
 
@@ -172,3 +172,11 @@ Thanks to the following contributors for coding help and image design:
 - Contribution: Coding and Design
 - Platform: Youtube
 - Webpage: https://www.youtube.com/@codewithantonio
+
+
+
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url-Bucsa]: https://www.linkedin.com/in/justin-bucsa
+[linkedin-Aldoresendiz]: https://www.linkedin.com/in/aldoresendiz/
+[linkedin-url-Cowdery]: https://www.linkedin.com/in/samuel-cowdery/
